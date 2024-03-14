@@ -2,12 +2,12 @@ import yahoo_fin.stock_info as yf
 import pandas as pd
 
 '''
-Two ways to create a screener:
-1. Create a filter while gathering the data.
-2. Collect data & filter based on multiple criteria afterwards.
+Two ways:
+1. Create a filter while gathering  data.
+2. Collect data & afterwards filter based on multiple criteria .
 '''
 
-#Get tickers
+#Get the tickers
 tickers = yf.tickers_sp500() #manual input is an option
 
 #
@@ -58,7 +58,7 @@ def bs(ticker):
     count_debt = 0
     count_cash = 0
     
-    #Find the row for debt
+    #Find the debt row
     for i in range(len(stats['Attribute'])):
         if stats['Attribute'][i] == 'Total Debt (mrq)':
             break
@@ -73,7 +73,7 @@ def bs(ticker):
     elif debt[-1].lower() == 'b':
         debt = float(debt[:-1])*1000   
     
-    #Find the row for cash
+    #Find the cash row
     for i in range(len(stats['Attribute'])):
         if stats['Attribute'][i] == 'Total Cash (mrq)':
             break
